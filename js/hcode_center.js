@@ -146,6 +146,42 @@
             var imgRate = 0.1;
             var imgRate2 = 0.07;
             var imgRate3 = 0.05;
+            var li1W = _slide1.eq(0).innerWidth();
+            var li2W = _slide1.eq(1).innerWidth();
+            var li3W = _slide1.eq(2).innerWidth();
+            var li4W = _slide1.eq(3).innerWidth();
+            var li5W = _slide1.eq(4).innerWidth();
+            var li1H = li1W*0.629590766;
+            var li2H = li2W*1.027777778;
+            var li3H = li3W*1.190476198;
+            var li4H = li4W*1;
+            var li5H = li5W*0.590643275;
+            var border2 = li2W*0.041666667;
+            var border3 = li3W*0.071428572;
+
+                function resizeFn(){
+                    li1W = _slide1.eq(0).innerWidth();
+                    li2W = _slide1.eq(1).innerWidth();
+                    li3W = _slide1.eq(2).innerWidth();    
+                    li4W = _slide1.eq(3).innerWidth();
+                    li5W = _slide1.eq(4).innerWidth();
+                    li1H = li1W*0.629590766;               
+                    li2H = li2W*1.027777778;
+                    li3H = li3W*1.190476190;
+                    li4H = li4W*1;
+                    li5H = li5W*0.590643275;
+                    border2 = li2W*0.041666667;
+                    border3 = li3W*0.071428571;
+                    _slide1.eq(0).css({height:li1H});
+                    _slide1.eq(1).css({height:li2H,borderWidth:border2});
+                    _slide1.eq(2).css({height:li3H,borderWidth:border3});
+                    _slide1.eq(3).css({height:li4H});
+                }
+        
+                _win.resize(function(){
+                    resizeFn();
+                });
+                setTimeout(resizeFn,100);
 
                 section01.on('mousemove',function(e){
 
@@ -226,18 +262,7 @@
                 mainNextSlideFn();
             }
    
-            setInterval(nextCntFn,5000);
-
-            // setTimeout(resizeFn,100);
-            // function resizeFn(){
-            //     winW = _win.innerWidth();
-            //     _1Slide.css({width:winW});
-
-            // }
-
-            // _win.resize(function(){
-            //     resizeFn();
-            // });
+            // setInterval(nextCntFn,5000);
 
         },
         sec02Fn:    function(){
